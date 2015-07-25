@@ -7,3 +7,5 @@ In more detail, it finds comments containing only the phrase "ENHANCE!" that are
 [Enhance joke video...](https://www.youtube.com/watch?v=Vxq9yj2pVWk)
 
 Credit to Silver-- for open sourcing [RemindMeBot](https://github.com/SIlver--/remindmebot-reddit)!
+
+If you have problems feel free to post in [/r/EnhanceImageBot](https://reddit.com/r/EnhanceImageBot)
