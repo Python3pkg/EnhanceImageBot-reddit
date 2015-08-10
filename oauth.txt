@@ -1,0 +1,25 @@
+# Config 
+scope=identity,submit
+refreshable=True
+
+# Appinfo
+app_key=m8QdnhUt9mUiWA
+app_secret=WIyXyO9lutGKNuFLCM-DDe7BSzs
+
+# Token
+token=None
+refresh_token=None
+
+
+
+# Config:
+#scope=identity, submit
+#refreshable=True
+
+# App Info
+#app_key=m8QdnhUt9mUiWA
+#app_secret=WIyXyO9lutGKNuFLCM-DDe7BSzs
+
+# Token
+#token=41221813-hnmvAur0tmgr_hqX6r7Fyb0st-4
+#refresh_token=41221813-_I6cLBjwQ24noZfkB_sdHsLd3dM
