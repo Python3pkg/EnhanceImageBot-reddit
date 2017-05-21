@@ -114,7 +114,7 @@ def enhanceImage(localpath):
         img.quality(80)
         img.sharpen(1)
         img.write(localpath)
-        print("Image written to %s" % localpath)
+        print(("Image written to %s" % localpath))
     except:
         return False
 
@@ -134,7 +134,7 @@ def replyToPost(comment, uploadedURL):
             comment = comment.reply('[Enhanced Image!](%s)\n\n^See ^/r/EnhaceImageBot ^for ^more ^info' % uploadedURL)
             return comment
         except praw.errors.RateLimitExceeded as error:
-            print("RateLimitExceeded. Trying again in %s seconds" % error.sleep_time)
+            print(("RateLimitExceeded. Trying again in %s seconds" % error.sleep_time))
         except:
             print("Unknown error")
             break
@@ -147,11 +147,11 @@ def main():
     oauth_helper.refresh()
     try:
         authenticated_user = r.get_me()
-        print('Authenticated! Logged in as %s' % authenticated_user.name)
+        print(('Authenticated! Logged in as %s' % authenticated_user.name))
         getTopSubmissions()
     except Exception as e:
-        print('Error: ', e)
-        print(traceback.format_exc())
+        print(('Error: ', e))
+        print((traceback.format_exc()))
     finally:
         print('Closing')
 

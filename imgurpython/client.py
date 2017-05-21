@@ -219,7 +219,7 @@ class ImgurClient(object):
         )
 
     def change_account_settings(self, username, fields):
-        post_data = {setting: fields[setting] for setting in set(self.allowed_account_fields).intersection(fields.keys())}
+        post_data = {setting: fields[setting] for setting in set(self.allowed_account_fields).intersection(list(fields.keys()))}
         return self.make_request('POST', 'account/%s/settings' % username, post_data)
 
     def get_email_verification_status(self, username):
@@ -284,7 +284,7 @@ class ImgurClient(object):
         return [Image(image) for image in images]
 
     def create_album(self, fields):
-        post_data = {field: fields[field] for field in set(self.allowed_album_fields).intersection(fields.keys())}
+        post_data = {field: fields[field] for field in set(self.allowed_album_fields).intersection(list(fields.keys()))}
 
         if 'ids' in post_data:
             self.logged_in()
@@ -292,7 +292,7 @@ class ImgurClient(object):
         return self.make_request('POST', 'album', data=post_data)
 
     def update_album(self, album_id, fields):
-        post_data = {field: fields[field] for field in set(self.allowed_album_fields).intersection(fields.keys())}
+        post_data = {field: fields[field] for field in set(self.allowed_album_fields).intersection(list(fields.keys()))}
 
         if isinstance(post_data['ids'], list):
             post_data['ids'] = ','.join(post_data['ids'])
@@ -524,7 +524,7 @@ class ImgurClient(object):
     def gallery_search(self, q, advanced=None, sort='time', window='all', page=0):
         if advanced:
             data = {field: advanced[field]
-                    for field in set(self.allowed_advanced_search_fields).intersection(advanced.keys())}
+                    for field in set(self.allowed_advanced_search_fields).intersection(list(advanced.keys()))}
         else:
             data = {'q': q}
 
@@ -592,7 +592,7 @@ class ImgurClient(object):
             'type': 'base64',
         }
 
-        data.update({meta: config[meta] for meta in set(self.allowed_image_fields).intersection(config.keys())})
+        data.update({meta: config[meta] for meta in set(self.allowed_image_fields).intersection(list(config.keys()))})
         toRet = self.make_request('POST', 'upload', data, anon)
         fd.close()
         return toRet
@@ -606,7 +606,7 @@ class ImgurClient(object):
             'type': 'url',
         }
 
-        data.update({meta: config[meta] for meta in set(self.allowed_image_fields).intersection(config.keys())})
+        data.update({meta: config[meta] for meta in set(self.allowed_image_fields).intersection(list(config.keys()))})
         return self.make_request('POST', 'upload', data, anon)
 
     def delete_image(self, image_id):
